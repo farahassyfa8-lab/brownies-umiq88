@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brownies umiQ</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">umiQ</a>
+  <ul class="nav-links">
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#quiz">Kuis</a></li>
+    <li><a href="#info">Lokasi</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="#info" class="nav-cta">HUBUNGI KAMI</a>
+    <button class="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#menu" onclick="toggleMobileMenu()">Menu</a>
+  <a href="#quiz" onclick="toggleMobileMenu()">Kuis</a>
+  <a href="#info" onclick="toggleMobileMenu()">Lokasi</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">umiQ</div>
+  <div class="hero-left">
+    <span class="hero-eyebrow fade-up d1">Brownies Premium Jakarta</span>
+    <h1 class="hero-headline fade-up d2"><span class="accent">EAT</span><br><span class="outline">ME</span><br>NOW.</h1>
+    <p class="hero-desc fade-up d3">Kami adalah umiQ — surganya pencinta cokelat. Temukan brownies lumer dengan rasa unik yang bikin kamu ketagihan setiap hari.</p>
+    <div class="hero-actions fade-up d4">
+      <a href="#menu" class="btn-primary">LIHAT MENU</a>
+      <a href="#info" class="btn-outline">TEMUKAN KAMI</a>
+    </div>
+  </div>
+  <div class="hero-right fade-up d2">
+    <div class="hero-visual">
+      <div class="brownie-grid">
+        <div class="b-block b1"></div><div class="b-block b2"></div><div class="b-block b3"></div>
+        <div class="b-block b4"></div><div class="b-block b5"></div><div class="b-block b6"></div>
+        <div class="b-block b7"></div><div class="b-block b8"></div><div class="b-block b9"></div>
+      </div>
+      <svg class="drizzle-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M80 30 Q110 80 80 140 Q50 200 90 260 Q120 310 90 370" stroke="rgba(255,220,120,.4)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M250 10 Q280 80 250 140 Q220 200 260 270 Q290 330 255 400" stroke="rgba(255,220,120,.3)" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M400 50 Q430 100 400 160 Q370 210 405 270" stroke="rgba(255,220,120,.25)" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">7+</div><div class="stat-label">Varian</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Fresh</div></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><div class="stat-num">★4.9</div><div class="stat-label">Rating</div></div>
+      </div>
+    </div>
+    <div class="hero-badge">FRESH<br>DAILY!</div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<!-- ABOUT -->
+<section class="section-about">
+  <div class="about-left">
+    <h2>FOODIES,<br>INI SAATNYA<br>BAHAGIA.</h2>
+    <p>Setiap gigitan brownies umiQ dibuat dengan dark chocolate pilihan, dipanggang fresh setiap hari, dan disiapkan dengan penuh cinta.</p>
+    <a href="#menu" class="btn-primary" style="align-self:flex-start;">LIHAT SEMUA MENU</a>
+  </div>
+  <div class="about-right">
+    <ul class="feature-list">
+      <li class="feature-item"><span class="feature-num">01</span><div class="feature-text"><h3>Fresh Every Day</h3><p>Dipanggang setiap pagi. Tidak ada stok kemarin.</p></div></li>
+      <li class="feature-item"><span class="feature-num">02</span><div class="feature-text"><h3>Dark Chocolate Premium</h3><p>Dark chocolate 70% pilihan untuk rasa yang kaya.</p></div></li>
+      <li class="feature-item"><span class="feature-num">03</span><div class="feature-text"><h3>Tanpa Pengawet</h3><p>100% bahan alami, aman untuk semua usia.</p></div></li>
+
+    </ul>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="section-menu" id="menu">
+  <div class="section-header">
+    <h2>MENU<br>KAMI</h2>
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="filterMenu('semua',this)">Semua</button>
+      <button class="tab-btn" onclick="filterMenu('classic',this)">Classic</button>
+      <button class="tab-btn" onclick="filterMenu('premium',this)">Premium</button>
+      <button class="tab-btn" onclick="filterMenu('spesial',this)">Spesial</button>
+    </div>
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+</section>
+
+<!-- QUIZ -->
+<section class="section-quiz" id="quiz">
+  <div class="quiz-header">
+    <h2>CARI TAU<br>BROWNIES<br>KAMU!</h2>
+    <p>Jawab 4 pertanyaan singkat dan kami akan rekomendasikan brownies umiQ yang paling cocok buat kamu. 🍫</p>
+  </div>
+  <div class="quiz-progress" id="quizProgress"></div>
+
+  <!-- Step 1 -->
+  <div class="quiz-step active" id="qstep-1">
+    <div class="quiz-question">Lagi pengen ngemil brownies buat suasana apa nih?</div>
+    <div class="quiz-options">
+      <button class="quiz-option" data-val="classic" onclick="selectOption(this)">😮‍💨 Santai di rumah, butuh yang familiar dan bikin nyaman.</button>
+      <button class="quiz-option" data-val="premium" onclick="selectOption(this)">🎉 Self-reward! Mau yang spesial dan memanjakan.</button>
+      <button class="quiz-option" data-val="unique" onclick="selectOption(this)">🌿 Pengen sesuatu yang beda dan bikin penasaran.</button>
+      <button class="quiz-option" data-val="nostalgia" onclick="selectOption(this)">🧸 Kangen masa kecil, mau yang nostalgic dan fun!</button>
+    </div>
+    <div class="quiz-nav"><button class="quiz-next-btn" id="nextBtn-1" onclick="nextStep(1)">LANJUT →</button></div>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="quiz-step" id="qstep-2">
+    <div class="quiz-question">Soal rasa, kamu tim yang mana?</div>
+    <div class="quiz-options">
+      <button class="quiz-option" data-val="choco" onclick="selectOption(this)">🍫 Pure cokelat pekat yang rich dan deep.</button>
+      <button class="quiz-option" data-val="creamy" onclick="selectOption(this)">🧀 Creamy dan lembut, ada sentuhan cheese atau susu.</button>
+      <button class="quiz-option" data-val="sweet-salty" onclick="selectOption(this)">🧂 Sweet & salty, kontras itu yang bikin nagih.</button>
+      <button class="quiz-option" data-val="matcha" onclick="selectOption(this)">🍵 Earthy dan unik, suka rasa yang sophisticated.</button>
+    </div>
+    <div class="quiz-nav"><button class="quiz-next-btn" id="nextBtn-2" onclick="nextStep(2)">LANJUT →</button></div>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="quiz-step" id="qstep-3">
+    <div class="quiz-question">Tekstur brownies impianmu itu seperti apa?</div>
+    <div class="quiz-options">
+      <button class="quiz-option" data-val="fudgy" onclick="selectOption(this)">💧 Super lumer dan fudgy, langsung meleleh di mulut.</button>
+      <button class="quiz-option" data-val="layered" onclick="selectOption(this)">🎂 Ada lapisan berbeda, suka kejutan di setiap gigitan.</button>
+      <button class="quiz-option" data-val="crunchy" onclick="selectOption(this)">✨ Ada tekstur tambahan, suka yang ada crunch-nya.</button>
+      <button class="quiz-option" data-val="dense" onclick="selectOption(this)">🧱 Padat dan dense, satu potong sudah bikin kenyang.</button>
+    </div>
+    <div class="quiz-nav"><button class="quiz-next-btn" id="nextBtn-3" onclick="nextStep(3)">LANJUT →</button></div>
+  </div>
+
+  <!-- Step 4 -->
+  <div class="quiz-step" id="qstep-4">
+    <div class="quiz-question">Kalau lagi makan brownies, kamu biasanya...?</div>
+    <div class="quiz-options">
+      <button class="quiz-option" data-val="alone" onclick="selectOption(this)">☕ Sendirian sambil minum kopi atau teh, me-time!</button>
+      <button class="quiz-option" data-val="friends" onclick="selectOption(this)">👫 Bareng teman atau keluarga, rame-rame lebih seru.</button>
+      <button class="quiz-option" data-val="gift" onclick="selectOption(this)">🎁 Buat hampers atau oleh-oleh, yang penting impressive.</button>
+      <button class="quiz-option" data-val="photo" onclick="selectOption(this)">📸 Foto dulu sebelum makan, estetika itu penting!</button>
+    </div>
+    <div class="quiz-nav"><button class="quiz-next-btn" id="nextBtn-4" onclick="showResult()">LIHAT HASIL! 🍫</button></div>
+  </div>
+
+  <!-- Result -->
+  <div class="quiz-result" id="quizResult">
+    <span class="confetti-emoji" id="resultEmoji">🍫</span>
+    <div class="result-card">
+      <div class="result-eyebrow">Brownies kamu adalah</div>
+      <div class="result-name" id="resultName">—</div>
+      <div class="result-price" id="resultPrice">—</div>
+      <div class="result-colors" id="resultColors"></div>
+      <div class="result-personality" id="resultPersonality"></div>
+      <div class="result-desc" id="resultDesc">—</div>
+      <div class="result-actions">
+        <button class="btn-retry" onclick="retryQuiz()">ULANGI KUIS</button>
+        <button class="btn-see-menu" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">LIHAT MENU →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- INFO -->
+<section class="section-info" id="info">
+  <div class="info-hours">
+    <h2>JAM BUKA</h2>
+    <table class="hours-table">
+      <tr><td>Senin</td><td>09:00 AM – 09:00 PM</td></tr>
+      <tr><td>Selasa</td><td>09:00 AM – 09:00 PM</td></tr>
+      <tr><td>Rabu</td><td>09:00 AM – 09:00 PM</td></tr>
+      <tr><td>Kamis</td><td>09:00 AM – 09:00 PM</td></tr>
+      <tr><td>Jumat</td><td>09:00 AM – 09:00 PM</td></tr>
+      <tr><td>Sabtu</td><td>09:00 AM – 09:00 PM</td></tr>
+      <tr class="closed-row"><td>Minggu</td><td>TUTUP</td></tr>
+    </table>
+  </div>
+  <div class="info-find">
+    <h2>TEMUKAN KAMI</h2>
+    <ul class="contact-list">
+      <li class="contact-item">
+        <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z" fill="#F5E6C8"/></svg></div>
+        <div class="contact-text"><strong>Alamat</strong><a href="https://share.google/AH9w43nQgMVhw0RpQ" target="_blank" style="color:var(--mid);text-decoration:underline;">Lihat di Google Maps</a></div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C9.39 21 3 14.61 3 7c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.24 1.02l-2.21 2.2z" fill="#F5E6C8"/></svg></div>
+        <div class="contact-text"><strong>Telepon</strong><a href="tel:08118137973" style="color:var(--mid);text-decoration:none;">0811-8137-973</a></div>
+      </li>
+      <li class="contact-item">
+        <div class="contact-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="#F5E6C8"/></svg></div>
+        <div class="contact-text"><strong>Email</strong><a href="mailto:browniesumiq@gmail.com" style="color:var(--mid);text-decoration:none;">browniesumiq@gmail.com</a></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- GOFOOD -->
+<section class="gofood-section">
+  <h3>PESAN SEKARANG<br>LEWAT GOFOOD! 🛵</h3>
+  <p>Brownies umiQ tersedia di GoFood. Pesan sekarang, diantar langsung ke pintu kamu!</p>
+  <a href="https://gofood.link/a/U3S4eio" target="_blank" class="gofood-btn">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5"/><path d="M11 7h2v5.25l4 2.35-.99 1.73L11 13.5V7z" fill="white"/></svg>
+    BUKA DI GOFOOD
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <h2>GIGIT<br>LEBIH<br>BANYAK.</h2>
+      <p>Brownies umiQ — dibuat dengan cinta, dark chocolate premium, dan passion yang tidak pernah padam.</p>
+    </div>
+    <div class="footer-nav">
+      <h4>Navigasi</h4>
+      <ul><li><a href="#menu">Menu</a></li><li><a href="#quiz">Kuis</a></li><li><a href="#info">Lokasi</a></li></ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Brownies umiQ. All rights reserved.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/brownieumiq?igsh=Z3d2d2RibDA4YThv" target="_blank" class="social-icon" title="Instagram umiQ">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#C9AA84" stroke-width="1.5"/><circle cx="12" cy="12" r="4" stroke="#C9AA84" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="#C9AA84"/></svg>
+      </a>
+      <a href="https://gofood.link/a/U3S4eio" target="_blank" class="social-icon" title="Pesan via GoFood">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#C9AA84" stroke-width="1.5"/><path d="M11 8h2v4.8l3.5 2.05-.99 1.65L11 14V8z" fill="#C9AA84"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
